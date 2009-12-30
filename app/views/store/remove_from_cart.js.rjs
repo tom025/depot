@@ -1,0 +1,9 @@
+page.replace_html("cart" , :partial => "cart" , :locals => {:cat_cart => @cat_cart})
+
+unless @current_item.nil?
+page[:current_item].visual_effect :highlight,
+                                  :startcolor => "#88ff88",
+                                  :endcolor => "#114411"
+end
+
+page[:cart].visual_effect :blind_up if @cart.total_items == 0
